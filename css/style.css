@@ -1,0 +1,566 @@
+/* Estilos generales */
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Varela+Round&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f0;
+}
+
+.contenedor {
+    width: 90%;
+    margin: auto;
+}
+
+/* Cabecera */
+
+.header {
+    background-color: #2f3a43;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+.enlaces a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+}
+
+.enlaces a:hover {
+    color: #288a99;
+}
+
+.icons_home{
+    font-size: 24px;
+}
+
+.menu-btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.hero {
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #288a99;
+    color: #333;
+    padding: 0.8rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2a5663;
+    color: #fff;
+}
+
+/* Estilos para la página de servicios */
+#services-section {
+    padding: 40px;
+    text-align: center;
+    display:inline-block ;
+    background-color: #ffffff;
+}
+/*  */
+.service-card {
+    width: 400px;
+    aspect-ratio: 1 / 0.7;
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+    margin: 1%;
+    display: inline-block;
+  }
+  .service-card .image-box {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+  }
+  .service-card .image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 90%;
+    border-radius: inherit;
+    transition: 0.5s ease-in-out;
+  }
+  
+  .service-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid white;
+    border-radius: inherit;
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+  }
+  
+  .service-card:hover img {
+    filter: grayscale(1) brightness(0.4);
+  }
+  .service-card:hover::after {
+    opacity: 1;
+    inset: 20px;
+  }
+  
+  .content-services-text {
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .content-services-text h2,
+  .content-services-text p {
+    opacity: 0;
+    transition: 0.4s 0.2s ease;
+    color: #d1d1d1;
+  }
+  .content-services-text h2 {
+    margin-bottom: 12px;
+    scale: 0.7;
+  }
+  .content-services-text p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #d1d1d1;
+    transform: translateY(50%);
+  }
+  .service-card:hover .content-services-text h2 {
+    scale: 1;
+    opacity: 1;
+  }
+  .service-card:hover .content-services-text P {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+.service-card{
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
+}
+
+/* Sobre nosotros */
+
+.questions{
+    text-align: center;
+    background-color: #e0eef5;
+    padding: 20px;
+    padding-left: 160px;
+    padding-right: 160px;
+    padding-bottom: 0px;
+}
+
+.questions_container{
+    display: grid;
+    gap: 2em;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.questions_padding{
+    padding: 0;
+    transition: padding .3s;
+    border: 1px solid #2f3a43;
+    border-radius: 6px;
+}
+
+.questions_padding--add{
+    padding-bottom: 30px;
+}
+
+.questions_answer{
+    padding: 0 30px 0;
+    overflow: hidden;
+}
+
+.questions_title{
+    text-align: left;
+    display: flex;
+    font-size: 20px;
+    padding: 30px 0 30px;
+    cursor: pointer;
+    color: var(--color-title);
+    justify-content: space-between;
+}
+
+.questions_arrow{
+    border-radius: 50%;
+    background-color: #2f3a43;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    margin-left: 10px;
+    transition:  transform .3s;
+}
+
+.questions_arrow--rotate{
+    transform: rotate(180deg);
+}
+
+.questions_show{
+    text-align: left;
+    height: 0;
+    transition: height .3s;
+}
+
+.questions_img{
+    display: block;
+}
+
+.questions_copy{
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+
+/* Proyectos */
+
+.proyectos {
+    background-color: #fff;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.proyecto-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.proyecto-item img {
+    width: 50%;
+    border-radius: 10px;
+}
+
+.proyecto-text {
+    text-align: left;
+}
+
+.proyecto-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.proyecto-text p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.proyecto-text .btn {
+    background-color: #278a98;
+    color: #333;
+    padding: 0.8rem 1.5rem;
+    text-align: center;
+    display: inline-block;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.proyecto-text .btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Equipo */
+
+.equipo {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.persona {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.persona img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #278a98;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.persona-text h3 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.persona-text p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Contacto */
+
+.contacto {
+    background-color: #f8f9fa;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.formulario input,
+.formulario textarea {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formulario textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.formulario .btn {
+    background-color: #278a98;
+    color: #333;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.formulario .btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.info-contacto {
+    margin-top: 2rem;
+}
+
+.info-contacto h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.info-contacto p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.info-contacto i {
+    margin-right: 0.5rem;
+}
+
+/* Estilos para el footer */
+footer.footer {
+    background-color: #2f3a43;
+    color: #ffffff;
+    padding: 50px 0;
+}
+
+.contenedor_footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info_footer {
+    flex: 1 1 300px;
+    margin-bottom: 30px;
+}
+
+.info_footer h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #288b98;
+    padding-bottom: 8px;
+}
+
+.info_footer p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.info_footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.info_footer ul li {
+    margin-bottom: 10px;
+}
+
+.info_footer ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.info_footer ul li a:hover {
+    color: #288b98;
+}
+
+.redes_footer {
+    display: flex;
+    gap: 10px;
+    font-size: 24px;
+}
+
+.redes_footer li {
+    list-style-type: none;
+}
+
+.redes_footer li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.redes_footer li a:hover {
+    color: #288b98;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* Media Queries para Tablets y Dispositivos Móviles Pequeños (hasta 768px) */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    /* Ajuste para la barra de navegación */
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+/* Media Queries para Dispositivos Móviles (hasta 576px) */
+@media (max-width: 576px) {
+    .container {
+        width: 95%;
+    }
+}
+
+/* Estilos para la sección de Proyectos */
+.proyectos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.proyecto {
+    width: 30%;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.proyecto img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.proyecto h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.proyecto p {
+    font-size: 1rem;
+}
+
+/* Media Queries para la sección de Proyectos en dispositivos móviles */
+@media (max-width: 768px) {
+    .proyecto {
+        width: 100%;
+        margin-right: 0; /* Eliminar margen derecho para evitar espacios innecesarios */
+    }
+}
+
+/* Media Queries para la sección de Proyectos en dispositivos muy pequeños */
+@media (max-width: 576px) {
+    .proyecto {
+        padding: 10px; /* Reducir el padding para aprovechar mejor el espacio */
+    }
+}
+
+/* Media Queries para la sección de Nuestro Equipo en dispositivos móviles */
+@media (max-width: 768px) {
+    .persona {
+        width: 100%;
+        margin-right: 0; /* Eliminar margen derecho para evitar espacios innecesarios */
+    }
+}
+
+/* Media Queries para la sección de Nuestro Equipo en dispositivos muy pequeños */
+@media (max-width: 576px) {
+    .persona {
+        padding: 10px; /* Reducir el padding para aprovechar mejor el espacio */
+    }
+}
+
+
