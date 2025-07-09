@@ -1,297 +1,1177 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoftTech Systems</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-sWLbTpB7j8PZKddzZx4F+xVtmVkVsJQ+ly+nFwh3UAZ8MlL39GE+9FuNjv+OWy9lkNDwFvkr5T2XmHsP+5nlqQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="icons/logo_softech-removebg-preview.png" type="image/png">
-</head>
+    <title>Softtech Systems | Soluciones Empresariales de Software</title>
+    <link rel="icon" href="./icons/SoftTech_icon.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Nueva paleta de colores */
+        :root {
+            --primary: #2CD4B8; /* Verde agua principal */
+            --primary-light: #3CE8CC;
+            --primary-dark: #18AFA5; /* Verde azulado oscuro */
+            --accent: #0E768A; /* Azul profundo para bordes */
+            --dark: #232F3E; /* Fondo oscuro */
+            --dark-light: #2D3B4E;
+            --gray-1: #F5F7FA;
+            --gray-2: #E1E4E8;
+            --gray-6: #6B778C;
+            --white: #FFFFFF;
+            --font-base: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            --font-display: 'Calibri', 'Arial Narrow', Arial, sans-serif;
+        }
 
-<body onload="load_page()">
-    <!-- CABECERA -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="contenedor">
-                <div class="logo">
-                    <a href="#"><img src="icons/logo_softech-removebg-preview.png" alt="Logo SoftTech Systems"></a>
+        /* Reset profesional */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: var(--font-base);
+            color: var(--dark);
+            background-color: var(--white);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* Tipografía ejecutiva */
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--primary-dark);
+            line-height: 1.3;
+        }
+
+        h1 { font-size: 2.2rem; }
+        h2 { font-size: 1.8rem; }
+        h3 { font-size: 1.4rem; }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: 5% auto;
+            padding: 2.5rem;
+            border-radius: 8px;
+            max-width: 700px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--gray-6);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
+        }
+
+        .modal-header {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .modal-icon {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .modal-body {
+            margin-bottom: 2rem;
+        }
+
+        .modal-body p {
+            margin-bottom: 1rem;
+            color: var(--gray-6);
+        }
+
+        .modal-features {
+            margin: 1.5rem 0;
+        }
+
+        .modal-features li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .modal-features i {
+            color: var(--primary);
+            margin-top: 0.2rem;
+        }
+
+        /* Header corporativo */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--gray-2);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 0.8rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo-icon {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+        }
+
+        .logo-text span {
+            font-weight: 300;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .cta-button {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(44, 212, 184, 0.3);
+        }
+
+        /* Hero section ejecutivo */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+        }
+
+        .hero h1, .hero h2, .hero h3 {
+            color: var(--white);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            max-width: 90%;
+        }
+
+        .hero-image {
+            position: relative;
+            border: 3px solid var(--white);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Sección de servicios profesionales */
+        .services {
+            padding: 5rem 2rem;
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        .section-header p {
+            color: var(--gray-6);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border: 1px solid var(--gray-2);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background-color: var(--primary);
+            transition: height 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(44, 212, 184, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .service-card:hover::before {
+            height: 100%;
+        }
+
+        .service-icon {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        .service-card p {
+            color: var(--gray-6);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-link {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .service-link i {
+            transition: transform 0.2s ease;
+        }
+
+        .service-link:hover {
+            color: var(--primary-dark);
+        }
+
+        .service-link:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Sección de productos */
+        .products {
+            padding: 5rem 2rem;
+            background-color: var(--gray-1);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-content h3 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-content p {
+            color: var(--gray-6);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-tag {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Sección tecnológica profesional - Carrusel */
+        .technology {
+            padding: 5rem 2rem;
+            background-color: var(--dark);
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .technology h2, .technology h3 {
+            color: var(--white);
+        }
+
+        .tech-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .tech-carousel {
+            display: flex;
+            gap: 3rem;
+            padding: 2rem 0;
+            animation: scroll 30s linear infinite;
+            width: calc(200px * 12);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-200px * 6)); }
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 200px;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: scale(1.1);
+        }
+
+        .tech-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover .tech-icon {
+            color: var(--white);
+        }
+
+        .tech-item div {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--white);
+        }
+
+        /* Sección de clientes - Carrusel */
+        .clients {
+            padding: 5rem 2rem;
+            background-color: var(--white);
+            overflow: hidden;
+        }
+
+        .clients-carousel {
+            display: flex;
+            gap: 3rem;
+            padding: 2rem 0;
+            animation: scroll 40s linear infinite;
+            width: calc(200px * 12);
+        }
+
+        .client-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 200px;
+            transition: all 0.3s ease;
+        }
+
+        .client-item:hover {
+            transform: scale(1.1);
+        }
+
+        .client-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .client-item:hover .client-icon {
+            color: var(--primary-dark);
+        }
+
+        .client-item div {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        /* CTA profesional */
+        .cta-section {
+            padding: 4rem 2rem;
+            background-color: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button.white {
+            background-color: var(--white);
+            color: var(--primary-dark);
+        }
+
+        .cta-button.white:hover {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer corporativo */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-about {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo-icon {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .footer-logo-text {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--white);
+        }
+
+        .footer-logo-text span {
+            font-weight: 300;
+        }
+
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .social-links a {
+            color: var(--white);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+
+        .footer-column h3 {
+            color: var(--white);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .hero-content {
+                text-align: center;
+            }
+            
+            .hero-content p {
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-image {
+                max-width: 600px;
+                margin: 0 auto;
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .modal-content {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-icon, .client-icon {
+                font-size: 2.5rem;
+            }
+            
+            .tech-item, .client-item {
+                min-width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-server"></i>
                 </div>
-                <center><div class="enlaces">
-                    <a href="#services-section" class="icons_home"><i class="fa-solid fa-house"></i> Servicios</a>
-                    <a href="#proyectos" class="icons_home"><i class="fa-solid fa-diagram-project"></i> Proyectos</a>
-                    <a href="#equipo" class="icons_home"><i class="fa-solid fa-people-group"></i> Equipo</a>
-                    <a href="#contacto" class="icons_home"><i class="fa-solid fa-tty"></i> Contacto</a>
-                </div></center>
-                <div class="menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <div class="logo-text">SOFTTECH <span>Systems</span></div>
             </div>
-        </nav>
-        <section class="hero">
-            <div class="contenedor">
-                <div class="hero-text">
-                    <h1>Bienvenido a SoftTech Systems</h1>
-                    <p>Tu socio confiable en soluciones tecnológicas innovadoras.</p>
-                    <a href="#contacto" class="btn">Contáctanos</a>
-                </div>
-            </div>
-        </section>
+            <nav class="nav-links">
+                <a href="#soluciones" class="active">Soluciones</a>
+                <a href="#productos">Productos</a>
+                <a href="#tecnologia">Tecnología</a>
+                <a href="#clientes">Clientes</a>
+                <a href="./pages/contact.html" class="cta-button">Contacto</a>
+            </nav>
+        </div>
     </header>
 
-    <!-- SERVICIOS -->
-    <section id="services-section">
-        <h2>Nuestros Servicios</h2>
-        <!-- Servicio #1 -->
-        <div class="service-card">
-            <div class="image-box">
-                <img src="images/HvtWp-xRQX-ge6-yC-1GEQ.png" alt="Desarrollo de aplicaciones web">
+    <!-- Modales para los servicios -->
+    <div id="modal-desarrollo-web" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon"><i class="fas fa-globe"></i></div>
+                <h3>Desarrollo Web</h3>
             </div>
-            <div class="content-services-text">
-                <h2 class="service-title"><strong>Desarrollo de aplicaciones web</strong></h2>
-                <p class="service-description">Creamos aplicaciones personalizadas para plataformas web que se adaptan a las necesidades específicas de tu negocio, utilizando tecnologías modernas para ofrecer una experiencia de usuario óptima.</p>
-            </div>
-        </div>
-        <!-- Servicio #2 -->
-        <div class="service-card">
-            <div class="image-box">
-                <img src="images/integracion1.png" alt="Desarrollo de software a la medida">
-            </div>
-            <div class="content-services-text">
-                <h2 class="service-title"><strong>Desarrollo de software a la medida</strong></h2>
-                <p class="service-description">Diseñamos y desarrollamos soluciones de software personalizadas para abordar los desafíos únicos de tu empresa, desde sistemas de gestión empresarial hasta herramientas de automatización, garantizando un rendimiento y funcionalidad excepcionales.</p>
-            </div>
-        </div>
-        <!-- Servicio #3 -->
-        <div class="service-card">
-            <div class="image-box">
-                <img src="images/desarrollo.avif" alt="Consultoriaen TI">
-            </div>
-            <div class="content-services-text">
-                <h2 class="service-title"><strong>Consultoria en tecnologia de la información</strong></h2>
-                <p class="service-description">Brindamos asesoramiento experto en tecnología de la información para ayudarte a tomar decisiones informadas sobre la infraestructura tecnológica de tu empresa, optimizando procesos y maximizando la eficiencia operativa.</p>
-            </div>
-        </div>
-        <!-- Servicio #4 -->
-        <div class="service-card">
-            <div class="image-box">
-                <img src="images/consultoria.jpg" alt="Optimización de procesos empresariales">
-            </div>
-            <div class="content-services-text">
-                <h2 class="service-title"><strong>Optimización de procesos empresariales</strong></h2>
-                <p class="service-description">Analizamos los procesos empresariales de tu organización y desarrollamos soluciones tecnológicas para optimizarlos, aumentando la productividad, reduciendo costos y mejorando la calidad del servicio ofrecido.</p>
-            </div>
-        </div>
-    </section>
-    <br>
-    <!-- SOBRE NOSOTROS -->
-    <section class="questions" id="questions">
-        <div class="container">
-            <h2 class="subtitle">Sobre Nosotros</h2>
-            <p class="questions_paragraph"></p>
-
-            <section class="questions_container">
-                <article class="questions_padding">
-                    <div class="questions_answer">
-                        <h3 class="questions_title">Misión
-                            <span class="questions_arrow">
-                                <img src="icons/arrow.svg" class="questions_img">
-                            </span>
-                        </h3>
-
-                        <p class="questions_show">Liderar el mercado de desarrollo de software mediante la entrega de soluciones tecnológicas avanzadas que transformen positivamente la operación y el crecimiento sostenible de nuestros clientes. Nos comprometemos a innovar de manera continua, proporcionando productos y servicios de alta calidad que superen las expectativas del cliente y impulsen la excelencia operativa en todos los sectores..</p>
-                    </div>
-                </article>
-
-                <article class="questions_padding">
-                    <div class="questions_answer">
-                        <h3 class="questions_title">Visión
-                            <span class="questions_arrow">
-                                <img src="icons/arrow.svg" class="questions_img">
-                            </span>
-                        </h3>
-
-                        <p class="questions_show">Ser reconocidos como el socio preferido en soluciones tecnológicas, destacándonos por nuestra capacidad para desarrollar y implementar innovaciones disruptivas que faciliten la evolución digital de las organizaciones. Nos esforzamos por establecer nuevos estándares en la industria, promoviendo un entorno donde la tecnología no solo resuelva desafíos empresariales, sino que también inspire el progreso y la sostenibilidad global.</p>
-                    </div>
-                </article>
-
-                <article class="questions_padding">
-                    <div class="questions_answer">
-                        <h3 class="questions_title">Acerca de
-                            <span class="questions_arrow">
-                                <img src="icons/arrow.svg" class="questions_img">
-                            </span>
-                        </h3>
-
-                        <p class="questions_show">SoftTech Systems es una empresa fundada en el año 2024, dedicada al desarrollo de software innovador y soluciones tecnológicas avanzadas. Nuestra compañía fue establecida con la visión de transformar digitalmente las operaciones empresariales mediante el uso estratégico de la tecnología. Dirigida por nuestro presidente, Luis Alexis Arenas Serrano, nos comprometemos a ofrecer productos y servicios de alta calidad que no solo satisfagan, sino que también superen las expectativas de nuestros clientes.</p>
-                    </div>
-                </article>
-            </section>
-        </div>
-    </section>
-
-    <!-- PROYECTOS -->
-    <section id="proyectos" class="proyectos">
-        <div class="contenedor">
-            <h2>Nuestros Proyectos</h2>
-            <div class="proyecto-item">
-                <img src="images/mi_corral.jpeg" alt="Proyecto 1">
-                <div class="proyecto-text">
-                    <h3>Proyecto 1</h3>
-                    <p>Desarrollo de App web para gestión contable del restaurante "Mi Corral"</p>
-                    <a href="#" class="btn">Ver más</a>
+            <div class="modal-body">
+                <p>Ofrecemos soluciones web completas y personalizadas que se adaptan a las necesidades específicas de su negocio. Nuestro equipo de desarrolladores crea sitios web y aplicaciones web que no solo son visualmente atractivos, sino también altamente funcionales y optimizados para el rendimiento.</p>
+                
+                <div class="modal-features">
+                    <h4>Características principales:</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <strong>Diseño responsive:</strong> Perfecta visualización en todos los dispositivos</li>
+                        <li><i class="fas fa-check"></i> <strong>Optimización SEO:</strong> Mejor posicionamiento en buscadores</li>
+                        <li><i class="fas fa-check"></i> <strong>Seguridad avanzada:</strong> Protección contra amenazas digitales</li>
+                        <li><i class="fas fa-check"></i> <strong>Integraciones:</strong> Conexión con sistemas existentes</li>
+                        <li><i class="fas fa-check"></i> <strong>Escalabilidad:</strong> Crecimiento acorde a su negocio</li>
+                    </ul>
                 </div>
+                
+                <p>Nuestro proceso de desarrollo incluye consultoría inicial, diseño UX/UI, desarrollo, pruebas exhaustivas y lanzamiento, seguido de mantenimiento continuo.</p>
             </div>
-            <!-- <div class="proyecto-item">
-                <img src="images/sistemas_one.jpg" alt="Proyecto 2">
-                <div class="proyecto-text">
-                    <h3>Proyecto 2</h3>
-                    <p>Descripción breve del proyecto 2.</p>
-                    <a href="#" class="btn">Ver más</a>
-                </div>
-            </div>
-            <div class="proyecto-item">
-                <img src="images/sistemas_two.jpg" alt="Proyecto 3">
-                <div class="proyecto-text">
-                    <h3>Proyecto 3</h3>
-                    <p>Descripción breve del proyecto 3.</p>
-                    <a href="#" class="btn">Ver más</a>
-                </div>
-            </div> -->
+            <a href="#contacto" class="cta-button">Solicitar este servicio</a>
         </div>
-    </section>
+    </div>
 
-    <!-- EQUIPO -->
-    <section id="equipo" class="equipo">
-        <div class="contenedor">
-            <h2>Nuestro Equipo</h2>
-            <div class="persona">
-                <center><img src="images/alexis.png" alt="Persona 1"></center>
-                <div class="persona-text">
-                    <h3>Luis Alexis Arenas</h3>
-                    <p>Presidente y CTO</p>
-                </div>
+    <div id="modal-optimizacion" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon"><i class="fas fa-cogs"></i></div>
+                <h3>Optimización de Procesos</h3>
             </div>
-            <div class="persona">
-                <center><img src="images/alexis.png" alt="Persona 2"></center>
-                <div class="persona-text">
-                    <h3>Nombre Apellido</h3>
-                    <p>Cargo</p>
+            <div class="modal-body">
+                <p>Transformamos sus operaciones empresariales mediante la digitalización y automatización de procesos, eliminando cuellos de botella y reduciendo costos operativos.</p>
+                
+                <div class="modal-features">
+                    <h4>Beneficios clave:</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <strong>Automatización de tareas repetitivas:</strong> Ahorro de tiempo y recursos</li>
+                        <li><i class="fas fa-check"></i> <strong>Flujos de trabajo optimizados:</strong> Mayor eficiencia operativa</li>
+                        <li><i class="fas fa-check"></i> <strong>Reducción de errores:</strong> Procesos más precisos y confiables</li>
+                        <li><i class="fas fa-check"></i> <strong>Integración de sistemas:</strong> Eliminación de silos de información</li>
+                        <li><i class="fas fa-check"></i> <strong>Análisis de datos:</strong> Toma de decisiones basada en información</li>
+                    </ul>
                 </div>
+                
+                <p>Nuestro enfoque incluye un análisis detallado de sus procesos actuales, identificación de áreas de mejora, implementación de soluciones tecnológicas y capacitación de su equipo.</p>
             </div>
-            <div class="persona">
-                <center><img src="images/alexis.png" alt="Persona 3"></center>
-                <div class="persona-text">
-                    <h3>Nombre Apellido</h3>
-                    <p>Cargo</p>
+            <a href="#contacto" class="cta-button">Solicitar este servicio</a>
+        </div>
+    </div>
+
+    <div id="modal-mantenimiento" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon"><i class="fas fa-tools"></i></div>
+                <h3>Mantenimiento de Software</h3>
+            </div>
+            <div class="modal-body">
+                <p>Ofrecemos soporte técnico especializado y mantenimiento preventivo y correctivo para garantizar que sus sistemas funcionen siempre al máximo rendimiento.</p>
+                
+                <div class="modal-features">
+                    <h4>Nuestros servicios incluyen:</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <strong>Actualizaciones periódicas:</strong> Mantenimiento de seguridad y funcionalidad</li>
+                        <li><i class="fas fa-check"></i> <strong>Resolución de incidencias:</strong> Soporte técnico rápido y eficaz</li>
+                        <li><i class="fas fa-check"></i> <strong>Mejoras continuas:</strong> Implementación de nuevas características</li>
+                        <li><i class="fas fa-check"></i> <strong>Monitoreo 24/7:</strong> Detección proactiva de problemas</li>
+                        <li><i class="fas fa-check"></i> <strong>Backups y recuperación:</strong> Protección de sus datos críticos</li>
+                    </ul>
                 </div>
+                
+                <p>Nuestros planes de mantenimiento son flexibles y se adaptan a las necesidades específicas de su empresa, desde soporte básico hasta cobertura completa.</p>
+            </div>
+            <a href="#contacto" class="cta-button">Solicitar este servicio</a>
+        </div>
+    </div>
+
+    <div id="modal-consultoria" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                <h3>Consultoría Tecnológica</h3>
+            </div>
+            <div class="modal-body">
+                <p>Nuestros expertos le ayudan a tomar decisiones tecnológicas estratégicas que impulsen el crecimiento de su negocio y mejoren su competitividad en el mercado.</p>
+                
+                <div class="modal-features">
+                    <h4>Áreas de consultoría:</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <strong>Estrategia digital:</strong> Planificación tecnológica a largo plazo</li>
+                        <li><i class="fas fa-check"></i> <strong>Selección de software:</strong> Análisis de soluciones del mercado</li>
+                        <li><i class="fas fa-check"></i> <strong>Transformación digital:</strong> Modernización de procesos y sistemas</li>
+                        <li><i class="fas fa-check"></i> <strong>Seguridad informática:</strong> Evaluación de riesgos y protección</li>
+                        <li><i class="fas fa-check"></i> <strong>Migración a la nube:</strong> Estrategias de cloud computing</li>
+                    </ul>
+                </div>
+                
+                <p>Nuestro enfoque de consultoría combina análisis profundo, recomendaciones prácticas y acompañamiento en la implementación para garantizar resultados tangibles.</p>
+            </div>
+            <a href="#contacto" class="cta-button">Solicitar este servicio</a>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Impulsamos la transformación digital de tu negocio</h1>
+                <p>En SoftTech Systems diseñamos soluciones tecnológicas inteligentes, centradas en mejorar la eficiencia, productividad y competitividad de las organizaciones.</p>
+                <a href="#soluciones" class="cta-button">Consultar Servicios</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1470&q=80" alt="Transformación digital empresarial">
             </div>
         </div>
     </section>
 
-    <!-- CONTACTO -->
-    <section id="contacto" class="contacto">
-        <div class="contenedor">
-            <h2>Contacto</h2>
-            <form action="#" class="formulario" id="contact-form">
-                <input type="text" placeholder="Nombre" id="user_name" required>
-                <input type="email" placeholder="Correo Electrónico" id="user_email" required>
-                <textarea placeholder="Mensaje" id="message" required></textarea>
-                <button type="submit" class="btn" onclick="send_info()">Enviar</button>
-            </form>
-            <div class="info-contacto">
-                <h3>Información de Contacto</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Dirección: Cra 20 #2 - 51</p>
-                <p><i class="fas fa-phone"></i> Teléfono: +57 320 902 1560</p>
-                <p><i class="fas fa-envelope"></i> Correo Electrónico: info@softtechsystems.com</p>
+    <section class="services" id="soluciones">
+        <div class="section-header">
+            <h2>Nuestras Soluciones</h2>
+            <p>SoftTech Systems ofrece herramientas modernas que permiten a las empresas optimizar sus procesos tecnológicos y operativos.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3>Desarrollo Web</h3>
+                <p>Sitios y plataformas web profesionales, funcionales y adaptadas a las necesidades del cliente.</p>
+                <a class="service-link open-modal" data-modal="modal-desarrollo-web">Ver más <i class="fas fa-chevron-right"></i></a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Optimización de Procesos</h3>
+                <p>Digitalización y automatización de tareas para reducir costos y aumentar la eficiencia.</p>
+                <a class="service-link open-modal" data-modal="modal-optimizacion">Ver más <i class="fas fa-chevron-right"></i></a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Mantenimiento de Software</h3>
+                <p>Soporte y mantenimiento exclusivo para programas desarrollados por SoftTech Systems.</p>
+                <a class="service-link open-modal" data-modal="modal-mantenimiento">Ver más <i class="fas fa-chevron-right"></i></a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>Consultoría Tecnológica</h3>
+                <p>Acompañamiento estratégico en la toma de decisiones tecnológicas para su negocio.</p>
+                <a class="service-link open-modal" data-modal="modal-consultoria">Ver más <i class="fas fa-chevron-right"></i></a>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="contenedor_footer">
-            <div class="info_footer">
+    <!-- Sección de productos -->
+    <section class="products" id="productos">
+        <div class="section-header">
+            <h2>Nuestros Productos</h2>
+            <p>Soluciones especializadas desarrolladas por nuestro equipo para necesidades específicas.</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1470&q=80" alt="FlorentIA">
+                </div>
+                <div class="product-content">
+                    <span class="product-tag">Educación + IA</span>
+                    <h3>FlorentIA</h3>
+                    <p>FlorentIA es una plataforma educativa impulsada por inteligencia artificial, diseñada para hacer dinámico el aprendizaje en niños de sexto y séptimo grado mediante jardines virtuales que representan su progreso.</p>
+                    <a href="./pages/products.html" class="service-link">Más información <i class="fas fa-chevron-right"></i></a>
+                </div>
+
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1470&q=80" alt="EduTech Suite">
+                </div>
+                <div class="product-content">
+                    <span class="product-tag">Educación</span>
+                    <h3>EduTech Suite</h3>
+                    <p>Conjunto de herramientas para la gestión educativa, desde registro académico hasta plataforma de aprendizaje.</p>
+                    <a href="./pages/products.html" class="service-link">Más información <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=1470&q=80" alt="BizFlow">
+                </div>
+                <div class="product-content">
+                    <span class="product-tag">Automatización</span>
+                    <h3>BizFlow</h3>
+                    <p>Sistema de automatización de procesos empresariales para optimizar flujos de trabajo y reducir tiempos.</p>
+                    <a href="./pages/products.html" class="service-link">Más información <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="technology" id="tecnologia">
+        <div class="tech-container">
+            <div class="section-header">
+                <h2>Tecnologías que Usamos</h2>
+                <p>En SoftTech Systems aplicamos tecnologías actuales y potentes para llevar tus ideas a la realidad.</p>
+            </div>
+            <div class="tech-carousel">
+                <div class="tech-item"><div class="tech-icon"><i class="fab fa-js"></i></div><div>JavaScript</div></div>
+                <div class="tech-item"><div class="tech-icon"><i class="fab fa-python"></i></div><div>Python</div></div>
+                <div class="tech-item"><div class="tech-icon"><i class="fab fa-vuejs"></i></div><div>Vue.js</div></div>
+                <div class="tech-item"><div class="tech-icon"><i class="fab fa-react"></i></div><div>React</div></div>
+                <div class="tech-item"><div class="tech-icon"><i class="fas fa-leaf"></i></div><div>Spring Boot</div></div>
+                <div class="tech-item"><div class="tech-icon"><i class="fas fa-database"></i></div><div>PostgreSQL</div></div>
+                <div class="tech-item"><div class="tech-icon"><i class="fas fa-star"></i></div><div>Astro</div></div>
+                <div class="tech-item"><div class="tech-icon"><i class="fas fa-wind"></i></div><div>Tailwind</div></div>
+                <div class="tech-item"><div class="tech-icon"><i class="fas fa-fire"></i></div><div>Firebase</div></div>
+                <div class="tech-item"><div class="tech-icon"><i class="fas fa-cloud-upload-alt"></i></div><div>Cloudinary</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="clients" id="clientes">
+        <div class="section-header">
+            <h2>Organizaciones con las que Trabajamos</h2>
+            <p>Hemos colaborado con entidades educativas, empresas y profesionales para crear soluciones reales con impacto.</p>
+        </div>
+        <div class="clients-carousel">
+            <div class="client-item"><div class="client-icon"><i class="fas fa-school"></i></div><div>Inst. Carlos H. Yaruro</div></div>
+            <div class="client-item"><div class="client-icon"><i class="fas fa-university"></i></div><div>UFPSO</div></div>
+            <div class="client-item"><div class="client-icon"><i class="fas fa-seedling"></i></div><div>FlorentIA</div></div>
+            <div class="client-item"><div class="client-icon"><i class="fas fa-handshake"></i></div><div>Proyectos Sociales</div></div>
+            <div class="client-item"><div class="client-icon"><i class="fas fa-users"></i></div><div>Clientes Personalizados</div></div>
+            <div class="client-item"><div class="client-icon"><i class="fas fa-chalkboard-teacher"></i></div><div>Docentes Universitarios</div></div>
+            <div class="client-item"><div class="client-icon"><i class="fas fa-code"></i></div><div>Startups Tecnológicas</div></div>
+            <div class="client-item"><div class="client-icon"><i class="fas fa-briefcase"></i></div><div>Emprendimientos Locales</div></div>
+            <div class="client-item"><div class="client-icon"><i class="fas fa-laptop-code"></i></div><div>Desarrolladores Freelance</div></div>
+            <div class="client-item"><div class="client-icon"><i class="fas fa-network-wired"></i></div><div>Integraciones Digitales</div></div>
+            <div class="client-item"><div class="client-icon"><i class="fas fa-globe"></i></div><div>Organismos Internacionales</div></div>
+            <div class="client-item"><div class="client-icon"><i class="fas fa-lightbulb"></i></div><div>Innovación Educativa</div></div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>¿Necesitas una solución digital?</h2>
+            <p>En SoftTech Systems estamos listos para ayudarte a transformar tus procesos con tecnología.</p>
+            <a href="./pages/contact.html" class="cta-button white">Solicitar Asesoría</a>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon"><i class="fas fa-server"></i></div>
+                    <div class="footer-logo-text">SOFTTECH <span>Systems</span></div>
+                </div>
+                <p>Empresa líder en soluciones digitales. Desarrollamos software personalizado que transforma organizaciones.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Servicios</h3>
+                <ul class="footer-links">
+                    <li><a href="#" class="open-modal" data-modal="modal-desarrollo-web">Desarrollo Web</a></li>
+                    <li><a href="#" class="open-modal" data-modal="modal-optimizacion">Consultoría</a></li>
+                    <li><a href="#" class="open-modal" data-modal="modal-mantenimiento">Mantenimiento</a></li>
+                    <li><a href="#" class="open-modal" data-modal="modal-consultoria">Optimización</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Productos</h3>
+                <ul class="footer-links">
+                    <li><a href="https://alexis8125.github.io/FlorentIA/" target="_blank">FlorentIA</a></li>
+                    <li><a href="#" onclick="alertEduTech()">EduTech Suite</a></li>
+                    <li><a href="#" onclick="alertBizFlow()">BizFlow</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
                 <h3>Contacto</h3>
-                <p>SoftTech Systems</p>
-                <p>Ocaña, Norte de Santander</p>
-                <p>Colombia</p>
-                <ul>
-                    <li><a href="tel:+573209021560">+57 320 902 1560</a></li>
-                    <li><a href="mailto:info@softtech.com">info@softtech.com</a></li>
-                </ul>
-            </div>
-            <div class="info_footer">
-                <h3>Redes Sociales</h3>
-                <ul class="redes_footer">
-                    <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                </ul>
-            </div>
-            <div class="info_footer">
-                <h3>Horarios de atención</h3>
-                <p>Lunes a Viernes: 08:00am - 12:00pm y 02:00pm - 06:pm</p>
-                <p>Sabados: 08:00am - 02:00pm</p>
-            </div>
-            <div class="info_footer">
-                <h3>Enlaces</h3>
-                <ul class="redes_footer">
-                    <li><a href="https://alexis8125.github.io/curriculum/" target="_blank" style="font-size: small;">Curriculum Presidente</a></li>
+                <ul class="footer-links">
+                    <li><a href="mailto:softtechsystemsinfo@gmail.com">softtechsystemsinfo@gmail.com</a></li>
+                    <li><a href="tel:+573142003456">+57 320 902 1560</a></li>
+                    <li><a href="#">Ocaña - Norte de Santander</a></li>
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 SoftTech Systems Unipersonal S.A.S. Todos los derechos reservados.</p>
+
+        <div class="copyright">
+            <p>© 2025 SoftTech Systems. Todos los derechos reservados.</p>
         </div>
     </footer>
-    <audio id="myAudio">
-        <source src="audio/3b190e42-4f60-4f33-a968-d02858ecef4c.mp3" type="audio/mpeg">
-    </audio>
-    <!-- SCRIPTS -->
-    <script src="js/function.js"></script>
-    <script src="js/questions.js"></script>
-    <script src="https://kit.fontawesome.com/cc651b5ac7.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
     <script>
-        (function() {
-            emailjs.init("KlPkGGrrCjjN5w9e_"); // Reemplaza "YOUR_USER_ID" con tu User ID de EmailJS
-
-            document.getElementById('contact-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-
-                // Aquí obtienes los datos del formulario
-                const formData = {
-                    user_name: document.getElementById('user_name').value,
-                    user_email: document.getElementById('user_email').value,
-                    message: document.getElementById('message').value
-                };
-
-                // Aquí se envía el correo usando EmailJS
-                emailjs.send("service_mny6w6a", "template_brtifde", formData)
-                    .then(function(response) {
-                        console.log('Correo enviado!', response.status, response.text);
-                        // alert('¡Tu mensaje ha sido enviado correctamente!');
-                        Swal.fire({
-                            title: "¡Tu mensaje ha sido enviado correctamente!",
-                            text: "Muy pronto nos pondremos en contacto contigo:)",
-                            icon: "success"
-                        });
-                    }, function(error) {
-                        console.log('Error al enviar el correo:', error);
-                        // alert('Hubo un error al enviar tu mensaje. Por favor, intenta nuevamente más tarde.');
-                        Swal.fire({
-                            title: "Hubo un error al enviar tu mensaje",
-                            text: "Por favor, intenta nuevamente más tarde.",
-                            icon: "error"
-                        });
-                    });
+        // Funcionalidad para los modales
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obtener todos los botones que abren modales
+            const modalButtons = document.querySelectorAll('.open-modal');
+            
+            // Obtener todos los modales
+            const modals = document.querySelectorAll('.modal');
+            
+            // Obtener todos los botones de cerrar modal
+            const closeButtons = document.querySelectorAll('.close-modal');
+            
+            // Función para abrir modal
+            function openModal(modalId) {
+                const modal = document.getElementById(modalId);
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Deshabilitar scroll
+            }
+            
+            // Función para cerrar modal
+            function closeModal(modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Habilitar scroll
+            }
+            
+            // Asignar eventos a los botones que abren modales
+            modalButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const modalId = this.getAttribute('data-modal');
+                    openModal(modalId);
+                });
             });
-        })();
+            
+            // Asignar eventos a los botones de cerrar
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const modal = this.closest('.modal');
+                    closeModal(modal);
+                });
+            });
+            
+            // Cerrar modal al hacer clic fuera del contenido
+            window.addEventListener('click', function(e) {
+                if (e.target.classList.contains('modal')) {
+                    closeModal(e.target);
+                }
+            });
+            
+            // Cerrar modal con tecla ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    modals.forEach(modal => {
+                        if (modal.style.display === 'block') {
+                            closeModal(modal);
+                        }
+                    });
+                }
+            });
+        });
+        function alertEduTech(){
+            Swal.fire({
+  title: '¡Estamos trabajando en ello!',
+  text: 'EduTech Suite aún está en desarrollo, pero pronto estará disponible para ti.',
+  imageUrl: 'https://cdn-icons-png.flaticon.com/512/3050/3050525.png', // Puedes cambiar esta URL por un ícono personalizado
+  imageWidth: 100,
+  imageHeight: 100,
+  imageAlt: 'En desarrollo',
+  confirmButtonText: 'Entendido',
+  confirmButtonColor: '#3085d6',
+  background: '#f0f8ff',
+  color: '#333',
+});
+        }
+        function alertBizFlow(){
+            Swal.fire({
+  title: '¡Estamos trabajando en ello!',
+  text: 'BizFlow aún está en desarrollo, pero pronto estará disponible para ti.',
+  imageUrl: 'https://cdn-icons-png.flaticon.com/512/3050/3050525.png', // Puedes cambiar esta URL por un ícono personalizado
+  imageWidth: 100,
+  imageHeight: 100,
+  imageAlt: 'En desarrollo',
+  confirmButtonText: 'Entendido',
+  confirmButtonColor: '#3085d6',
+  background: '#f0f8ff',
+  color: '#333',
+});
+        }
     </script>
 </body>
-
 </html>
-
