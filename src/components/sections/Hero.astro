@@ -1,0 +1,76 @@
+---
+// src/components/sections/Hero.astro
+import FadeIn from '../animations/FadeIn.astro';
+import Card from '../ui/Card.astro';
+---
+
+<section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 pt-20">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Texto principal -->
+      <div class="text-center lg:text-left">
+        <FadeIn direction="up" delay="100ms">
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
+            <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+              Innovación
+            </span>
+            <br />
+            <span class="text-gray-900">que transforma</span>
+          </h1>
+        </FadeIn>
+
+        <FadeIn direction="up" delay="200ms">
+          <p class="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
+            Desarrollamos soluciones tecnológicas avanzadas que impulsan el crecimiento 
+            y la transformación digital de empresas e instituciones.
+          </p>
+        </FadeIn>
+
+        <FadeIn direction="up" delay="300ms">
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href="/contacto" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center justify-center">
+              Comenzar Proyecto
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+            </a>
+            <a href="/servicios" class="border border-gray-300 text-gray-700 px-8 py-4 rounded-2xl font-semibold hover:bg-gray-50 transition-all duration-300">
+              Ver Servicios
+            </a>
+          </div>
+        </FadeIn>
+      </div>
+
+      <!-- Tarjetas de plataformas -->
+      <div class="relative">
+        <FadeIn direction="left" delay="400ms">
+          <Card gradient="from-blue-100 to-cyan-100" class="mb-6">
+            <div class="flex items-center space-x-4">
+              <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <span class="text-white font-bold text-xl">F</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg">FlorentIA</h3>
+                <p class="text-gray-600 text-sm">Plataforma de IA empresarial</p>
+              </div>
+            </div>
+          </Card>
+        </FadeIn>
+
+        <FadeIn direction="left" delay="500ms">
+          <Card gradient="from-green-100 to-blue-100" class="ml-8">
+            <div class="flex items-center space-x-4">
+              <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <span class="text-white font-bold text-xl">E</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg">EduTech Suite</h3>
+                <p class="text-gray-600 text-sm">Solución educativa integral</p>
+              </div>
+            </div>
+          </Card>
+        </FadeIn>
+      </div>
+    </div>
+  </div>
+</section>

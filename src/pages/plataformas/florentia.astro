@@ -1,0 +1,195 @@
+---
+// src/pages/plataformas/florentia.astro
+import PageLayout from '../../layouts/PageLayout.astro';
+import FadeIn from '../../components/animations/FadeIn.astro';
+import Card from '../../components/ui/Card.astro';
+---
+
+<PageLayout title="florentIA - Plataforma de IA Empresarial | SoftTech Systems">
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 bg-gradient-to-br from-purple-50 to-pink-50">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <FadeIn direction="up">
+            <div class="flex items-center mb-6">
+              <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg mr-6">
+                <span class="text-white font-bold text-3xl">f</span>
+              </div>
+              <div>
+                <h1 class="text-5xl lg:text-6xl font-bold text-gray-900">florentIA</h1>
+                <p class="text-xl text-gray-600 mt-2">Plataforma de Inteligencia Artificial Empresarial</p>
+              </div>
+            </div>
+          </FadeIn>
+
+          <FadeIn direction="up" delay="200ms">
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+              Transforma tus datos en decisiones estratégicas con nuestra plataforma de IA avanzada. 
+              FlorentIA utiliza machine learning y algoritmos predictivos para optimizar procesos, 
+              automatizar tareas y descubrir insights valiosos en tus datos.
+            </p>
+          </FadeIn>
+
+          <FadeIn direction="up" delay="300ms">
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="/contacto" class="bg-gradient-to-r from-purple-500 to-pink-600 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center justify-center">
+                Solicitar Demo
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+              </a>
+              <a href="#caracteristicas" class="border border-gray-300 text-gray-700 px-8 py-4 rounded-2xl font-semibold hover:bg-gray-50 transition-all duration-300">
+                Ver Características
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+
+        <FadeIn direction="left" delay="400ms">
+          <Card gradient="from-white to-purple-100" class="text-center p-8">
+            <div class="text-6xl mb-4">🚀</div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Potencia tu Empresa con IA</h3>
+            <p class="text-gray-600 mb-6">
+              +45% de eficiencia en procesos empresariales
+            </p>
+            <div class="grid grid-cols-2 gap-4 text-sm">
+              <div class="text-center">
+                <div class="text-2xl font-bold text-purple-600">95%</div>
+                <div class="text-gray-600">Precisión</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-purple-600">24/7</div>
+                <div class="text-gray-600">Disponibilidad</div>
+              </div>
+            </div>
+          </Card>
+        </FadeIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Características -->
+  <section id="caracteristicas" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <FadeIn direction="up">
+        <h2 class="text-4xl font-bold text-center mb-16">
+          <span class="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            Características Principales
+          </span>
+        </h2>
+      </FadeIn>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <FadeIn direction="up" delay="100ms">
+          <Card hover={true}>
+            <div class="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Análisis Predictivo</h3>
+            <p class="text-gray-600">
+              Anticipa tendencias y comportamientos con modelos predictivos avanzados 
+              que analizan datos históricos y en tiempo real.
+            </p>
+          </Card>
+        </FadeIn>
+
+        <FadeIn direction="up" delay="200ms">
+          <Card hover={true}>
+            <div class="w-12 h-12 bg-pink-100 rounded-2xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Procesamiento NLP</h3>
+            <p class="text-gray-600">
+              Analiza y comprende texto natural para extraer insights de documentos, 
+              emails y conversaciones de clientes.
+            </p>
+          </Card>
+        </FadeIn>
+
+        <FadeIn direction="up" delay="300ms">
+          <Card hover={true}>
+            <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Automatización Inteligente</h3>
+            <p class="text-gray-600">
+              Automatiza procesos complejos con flujos de trabajo inteligentes 
+              que aprenden y se adaptan continuamente.
+            </p>
+          </Card>
+        </FadeIn>
+
+        <FadeIn direction="up" delay="400ms">
+          <Card hover={true}>
+            <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Detección de Anomalías</h3>
+            <p class="text-gray-600">
+              Identifica patrones inusuales y potenciales problemas antes de que 
+              afecten tu operación con algoritmos de detección avanzada.
+            </p>
+          </Card>
+        </FadeIn>
+
+        <FadeIn direction="up" delay="500ms">
+          <Card hover={true}>
+            <div class="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Dashboards Interactivos</h3>
+            <p class="text-gray-600">
+              Visualiza tus datos con dashboards personalizables y reportes 
+              automáticos que facilitan la toma de decisiones.
+            </p>
+          </Card>
+        </FadeIn>
+
+        <FadeIn direction="up" delay="600ms">
+          <Card hover={true}>
+            <div class="w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Seguridad Integrada</h3>
+            <p class="text-gray-600">
+              Protección de datos end-to-end con encriptación avanzada y controles 
+              de acceso granular para máxima seguridad.
+            </p>
+          </Card>
+        </FadeIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-purple-600 to-pink-600">
+    <div class="container mx-auto px-6 text-center">
+      <FadeIn direction="up">
+        <h2 class="text-4xl font-bold text-white mb-6">¿Listo para implementar IA en tu empresa?</h2>
+        <p class="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+          Agenda una demostración personalizada y descubre cómo florentIA puede transformar 
+          tus operaciones y impulsar tu crecimiento.
+        </p>
+        <a href="/contacto" class="bg-white text-purple-600 px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center">
+          Solicitar Demo Personalizada
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </a>
+      </FadeIn>
+    </div>
+  </section>
+</PageLayout>

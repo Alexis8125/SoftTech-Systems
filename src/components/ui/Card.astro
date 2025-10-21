@@ -1,0 +1,21 @@
+---
+// src/components/ui/Card.astro
+export interface Props {
+  gradient?: string;
+  hover?: boolean;
+  class?: string;
+}
+
+const { gradient = 'from-blue-50 to-purple-50', hover = true, class: className = '' } = Astro.props;
+---
+
+<div class={`
+  bg-gradient-to-br ${gradient} 
+  rounded-3xl p-8 
+  border border-gray-200/50
+  backdrop-blur-sm
+  ${hover ? 'transform transition-all duration-300 hover:scale-105 hover:shadow-2xl' : ''}
+  ${className}
+`}>
+  <slot />
+</div>

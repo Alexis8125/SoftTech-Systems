@@ -1,0 +1,210 @@
+---
+// src/pages/nosotros.astro
+import PageLayout from '../layouts/PageLayout.astro';
+import FadeIn from '../components/animations/FadeIn.astro';
+import Card from '../components/ui/Card.astro';
+---
+
+<PageLayout title="Sobre Nosotros - SoftTech Systems">
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 bg-gradient-to-br from-blue-50 to-purple-50">
+    <div class="container mx-auto px-6 text-center">
+      <FadeIn direction="up">
+        <h1 class="text-5xl lg:text-6xl font-bold mb-6">
+          <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Nosotros
+          </span>
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Más de una década transformando ideas en soluciones tecnológicas innovadoras 
+          que impulsan el crecimiento y la transformación digital.
+        </p>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- Nuestra Historia -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <FadeIn direction="up">
+          <div>
+            <h2 class="text-4xl font-bold text-gray-900 mb-6">Nuestra Historia</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              Fundada en 2024, SoftTech Systems nació con la visión de democratizar el acceso 
+              a tecnologías avanzadas para empresas de todos los tamaños. Lo que comenzó como 
+              un pequeño equipo de desarrolladores apasionados, hoy es una empresa líder en 
+              desarrollo de software con presencia en múltiples países.
+            </p>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+              A lo largo de los años, hemos evolucionado junto con la tecnología, adaptándonos 
+              a nuevas tendencias y manteniendo siempre nuestro compromiso con la excelencia 
+              y la innovación.
+            </p>
+            <div class="grid grid-cols-2 gap-6">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-blue-600 mb-2">50+</div>
+                <div class="text-gray-600">Proyectos Exitosos</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-blue-600 mb-2">30+</div>
+                <div class="text-gray-600">Clientes Satisfechos</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-blue-600 mb-2">12+</div>
+                <div class="text-gray-600">Años de Experiencia</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-blue-600 mb-2">15+</div>
+                <div class="text-gray-600">Especialistas</div>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+
+        <FadeIn direction="left">
+          <Card gradient="from-blue-100 to-purple-100" class="p-8">
+            <div class="text-center">
+              <div class="text-6xl mb-4">🚀</div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Nuestra Misión</h3>
+              <p class="text-gray-600 mb-6">
+                Impulsar la innovación tecnológica desarrollando soluciones software 
+                que resuelvan problemas complejos y generen valor tangible para nuestros clientes.
+              </p>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Nuestra Visión</h3>
+              <p class="text-gray-600">
+                Ser reconocidos como líderes en desarrollo tecnológico en América Latina, 
+                destacando por nuestra capacidad de adaptación e innovación continua.
+              </p>
+            </div>
+          </Card>
+        </FadeIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valores -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <FadeIn direction="up">
+        <h2 class="text-4xl font-bold text-center mb-16">
+          <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Nuestros Valores
+          </span>
+        </h2>
+      </FadeIn>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <FadeIn direction="up" delay="100ms">
+          <Card class="text-center">
+            <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Innovación</h3>
+            <p class="text-gray-600">
+              Buscamos constantemente nuevas formas de resolver problemas y crear valor.
+            </p>
+          </Card>
+        </FadeIn>
+
+        <FadeIn direction="up" delay="200ms">
+          <Card class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Calidad</h3>
+            <p class="text-gray-600">
+              Nos comprometemos con la excelencia en cada proyecto que emprendemos.
+            </p>
+          </Card>
+        </FadeIn>
+
+        <FadeIn direction="up" delay="300ms">
+          <Card class="text-center">
+            <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Colaboración</h3>
+            <p class="text-gray-600">
+              Trabajamos en equipo con nuestros clientes para alcanzar objetivos comunes.
+            </p>
+          </Card>
+        </FadeIn>
+
+        <FadeIn direction="up" delay="400ms">
+          <Card class="text-center">
+            <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Agilidad</h3>
+            <p class="text-gray-600">
+              Nos adaptamos rápidamente a los cambios y entregamos resultados en tiempo récord.
+            </p>
+          </Card>
+        </FadeIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipo -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <FadeIn direction="up">
+        <h2 class="text-4xl font-bold text-center mb-16">
+          <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Nuestro Equipo
+          </span>
+        </h2>
+      </FadeIn>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <FadeIn direction="up" delay="100ms">
+          <Card class="text-center">
+            <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <span class="text-white font-bold text-2xl">JD</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Juan Díaz</h3>
+            <p class="text-blue-600 font-medium mb-3">CEO & Fundador</p>
+            <p class="text-gray-600 text-sm">
+              Más de 15 años de experiencia en desarrollo de software y liderazgo tecnológico.
+            </p>
+          </Card>
+        </FadeIn>
+
+        <FadeIn direction="up" delay="200ms">
+          <Card class="text-center">
+            <div class="w-24 h-24 bg-gradient-to-br from-green-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <span class="text-white font-bold text-2xl">MR</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">María Rodríguez</h3>
+            <p class="text-blue-600 font-medium mb-3">CTO</p>
+            <p class="text-gray-600 text-sm">
+              Especialista en arquitecturas cloud y soluciones escalables de alta disponibilidad.
+            </p>
+          </Card>
+        </FadeIn>
+
+        <FadeIn direction="up" delay="300ms">
+          <Card class="text-center">
+            <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <span class="text-white font-bold text-2xl">CL</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Carlos López</h3>
+            <p class="text-blue-600 font-medium mb-3">Líder de IA</p>
+            <p class="text-gray-600 text-sm">
+              Experto en machine learning y desarrollo de algoritmos de inteligencia artificial.
+            </p>
+          </Card>
+        </FadeIn>
+      </div>
+    </div>
+  </section>
+</PageLayout>

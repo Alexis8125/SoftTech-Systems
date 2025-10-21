@@ -1,0 +1,22 @@
+---
+// src/components/animations/FadeIn.astro
+export interface Props {
+  delay?: string;
+  direction?: 'up' | 'down' | 'left' | 'right';
+  class?: string;
+}
+
+const { delay = '0ms', direction = 'up', class: className = '' } = Astro.props;
+
+const directionClasses = {
+  up: 'translate-y-8',
+  down: '-translate-y-8', 
+  left: 'translate-x-8',
+  right: '-translate-x-8'
+};
+---
+
+<div class={`fade-in-up opacity-0 transform ${directionClasses[direction]} transition-all duration-700 ease-out ${className}`}
+     style={`transition-delay: ${delay};`}>
+  <slot />
+</div>

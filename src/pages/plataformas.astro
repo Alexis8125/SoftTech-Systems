@@ -1,0 +1,197 @@
+---
+// src/pages/plataformas.astro
+import PageLayout from '../layouts/PageLayout.astro';
+import FadeIn from '../components/animations/FadeIn.astro';
+import Card from '../components/ui/Card.astro';
+---
+
+<PageLayout title="Nuestras Plataformas - SoftTech Systems">
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 bg-gradient-to-br from-blue-50 to-purple-50">
+    <div class="container mx-auto px-6 text-center">
+      <FadeIn direction="up">
+        <h1 class="text-5xl lg:text-6xl font-bold mb-6">
+          <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Plataformas
+          </span>
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Desarrollamos plataformas especializadas que resuelven desafíos complejos 
+          y generan valor tangible para nuestros clientes.
+        </p>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- Plataformas Grid -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <!-- florentIA -->
+        <FadeIn direction="up" delay="100ms">
+          <Card hover={true} class="h-full">
+            <div class="flex items-center mb-6">
+              <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg mr-4">
+                <span class="text-white font-bold text-2xl">f</span>
+              </div>
+              <div>
+                <h3 class="text-3xl font-bold text-gray-900">florentIA</h3>
+                <p class="text-gray-600">Plataforma de Inteligencia Artificial Empresarial</p>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              FlorentIA es nuestra plataforma de inteligencia artificial que transforma datos 
+              en decisiones estratégicas. Utiliza algoritmos avanzados para optimizar procesos 
+              empresariales, predecir tendencias y automatizar tareas repetitivas.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div class="flex items-center">
+                <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-600 text-sm">Análisis predictivo</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-600 text-sm">Automatización de procesos</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-600 text-sm">Procesamiento de lenguaje natural</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-600 text-sm">Dashboards interactivos</span>
+              </div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="/plataformas/florentia" class="bg-gradient-to-r from-purple-500 to-pink-600 text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all duration-300 text-center">
+                Ver Detalles
+              </a>
+              <a href="/contacto" class="border border-gray-300 text-gray-700 px-6 py-3 rounded-xl font-medium hover:bg-gray-50 transition-all duration-300 text-center">
+                Solicitar Demo
+              </a>
+            </div>
+          </Card>
+        </FadeIn>
+
+        <!-- EduTech Suite -->
+        <FadeIn direction="up" delay="200ms">
+          <Card hover={true} class="h-full">
+            <div class="flex items-center mb-6">
+              <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg mr-4">
+                <span class="text-white font-bold text-2xl">E</span>
+              </div>
+              <div>
+                <h3 class="text-3xl font-bold text-gray-900">EduTech Suite</h3>
+                <p class="text-gray-600">Solución Educativa Integral</p>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              EduTech Suite es nuestra plataforma educativa que combina gestión administrativa, 
+              herramientas de aprendizaje y colaboración en un ecosistema unificado diseñado 
+              específicamente para instituciones educativas.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div class="flex items-center">
+                <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-600 text-sm">Gestión académica</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-600 text-sm">Aulas virtuales</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-600 text-sm">Evaluaciones en línea</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-600 text-sm">Reportes analíticos</span>
+              </div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="/plataformas/edutech-suite" class="bg-gradient-to-r from-blue-500 to-cyan-600 text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all duration-300 text-center">
+                Ver Detalles
+              </a>
+              <a href="/contacto" class="border border-gray-300 text-gray-700 px-6 py-3 rounded-xl font-medium hover:bg-gray-50 transition-all duration-300 text-center">
+                Solicitar Demo
+              </a>
+            </div>
+          </Card>
+        </FadeIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <FadeIn direction="up">
+        <h2 class="text-4xl font-bold text-center mb-16">
+          <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Características Comunes
+          </span>
+        </h2>
+      </FadeIn>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <FadeIn direction="up" delay="100ms">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Seguridad Avanzada</h3>
+            <p class="text-gray-600">
+              Implementamos los más altos estándares de seguridad para proteger tus datos y operaciones.
+            </p>
+          </div>
+        </FadeIn>
+
+        <FadeIn direction="up" delay="200ms">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Alto Rendimiento</h3>
+            <p class="text-gray-600">
+              Arquitecturas optimizadas que garantizan tiempos de respuesta rápidos y confiables.
+            </p>
+          </div>
+        </FadeIn>
+
+        <FadeIn direction="up" delay="300ms">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Escalabilidad</h3>
+            <p class="text-gray-600">
+              Crece sin límites con infraestructuras diseñadas para adaptarse a tus necesidades.
+            </p>
+          </div>
+        </FadeIn>
+      </div>
+    </div>
+  </section>
+</PageLayout>
