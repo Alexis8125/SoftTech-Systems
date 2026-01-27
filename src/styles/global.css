@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #0ea5e9;
+    --primary-dark: #0284c7;
+  }
+  
+  html {
+    @apply scroll-smooth;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans antialiased text-secondary-800 bg-white;
+  }
+  
+  ::selection {
+    @apply bg-primary-100 text-primary-900;
+  }
+}
+
+@layer components {
+  .container-lg {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-padding {
+    @apply py-20 lg:py-28;
+  }
+  
+  .heading-1 {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  }
+  
+  .heading-2 {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+  }
+  
+  .heading-3 {
+    @apply font-display text-2xl md:text-3xl font-bold;
+  }
+  
+  .text-lead {
+    @apply text-lg md:text-xl text-secondary-600 leading-relaxed;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-white text-secondary-700 border border-secondary-200 hover:border-secondary-300 hover:bg-secondary-50 focus:ring-secondary-300 shadow-sm hover:shadow;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl border border-secondary-100 shadow-sm hover:shadow-lg transition-all duration-300;
+  }
+  
+  .glass {
+    @apply backdrop-blur-lg bg-white/70 border border-white/20;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 via-accent-blue to-accent-teal bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient;
+  }
+}
+
+@layer utilities {
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animate-delay-600 {
+    animation-delay: 600ms;
+  }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+}

@@ -1,0 +1,40 @@
+---
+import Button from '../UI/Button.astro';
+import MobileMenu from './MobileMenu.astro';
+---
+
+<header class="sticky top-0 z-50 glass border-b border-white/10">
+  <nav class="container-lg py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="flex items-center space-x-3">
+        <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-accent-blue rounded-lg flex items-center justify-center">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display text-xl font-bold text-secondary-900">SoftTech</span>
+          <span class="text-xs text-secondary-500">Systems</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#soluciones" class="text-secondary-700 hover:text-primary-600 font-medium transition-colors duration-200">Soluciones</a>
+        <a href="#servicios" class="text-secondary-700 hover:text-primary-600 font-medium transition-colors duration-200">Servicios</a>
+        <a href="#productos" class="text-secondary-700 hover:text-primary-600 font-medium transition-colors duration-200">Productos</a>
+        <a href="#nosotros" class="text-secondary-700 hover:text-primary-600 font-medium transition-colors duration-200">Nosotros</a>
+        <a href="#proceso" class="text-secondary-700 hover:text-primary-600 font-medium transition-colors duration-200">Proceso</a>
+        
+        <div class="flex items-center space-x-4">
+          <Button variant="outline" href="#contacto">Contacto</Button>
+          <Button href="#contacto">Iniciar Proyecto</Button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <MobileMenu />
+    </div>
+  </nav>
+</header>

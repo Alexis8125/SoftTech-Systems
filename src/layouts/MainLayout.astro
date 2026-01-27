@@ -1,0 +1,138 @@
+---
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>
+      SoftTech Systems - Soluciones Tecnológicas Innovadoras
+    </title>
+    <meta name="title" content="SoftTech Systems - Soluciones Tecnológicas Innovadoras" />
+    <meta name="description" content="Desarrollamos software empresarial que combina innovación tecnológica con funcionalidad práctica. Transformamos procesos complejos en soluciones intuitivas." />
+    <meta name="keywords" content="software empresarial, desarrollo web, consultoría tecnológica, AMS Inventory, FlorentIA, EduTech Suite, transformación digital" />
+    <meta name="author" content="SoftTech Systems" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://softtechsystems.com/" />
+    <meta property="og:title" content="SoftTech Systems - Soluciones Tecnológicas Innovadoras" />
+    <meta property="og:description" content="Transformamos procesos complejos en soluciones intuitivas que impulsan la productividad y el crecimiento sostenible." />
+    <meta property="og:image" content="https://softtechsystems.com/og-image.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://softtechsystems.com/" />
+    <meta property="twitter:title" content="SoftTech Systems - Soluciones Tecnológicas Innovadoras" />
+    <meta property="twitter:description" content="Transformamos procesos complejos en soluciones intuitivas que impulsan la productividad y el crecimiento sostenible." />
+    <meta property="twitter:image" content="https://softtechsystems.com/og-image.jpg" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lexend:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://softtechsystems.com/" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "SoftTech Systems",
+        "url": "https://softtechsystems.com",
+        "logo": "https://softtechsystems.com/logo.svg",
+        "description": "Desarrollamos soluciones tecnológicas que simplifican la forma en que las empresas trabajan, gestionan y crecen.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-555-123-4567",
+          "contactType": "customer service",
+          "email": "info@softtechsystems.com",
+          "availableLanguage": ["Spanish", "English"]
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/softtech-systems",
+          "https://twitter.com/softtechsystems",
+          "https://github.com/softtech-systems"
+        ]
+      }
+    </script>
+  </head>
+  
+  <body class="min-h-screen flex flex-col">
+    <slot />
+    
+    <!-- Smooth Scroll Polyfill for Safari -->
+    <script>
+      if (!('scrollBehavior' in document.documentElement.style)) {
+        import('https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js');
+      }
+    </script>
+    
+    <!-- Intersection Observer for animations -->
+    <script>
+      // Lazy load images
+      if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src;
+              img.classList.remove('lazy');
+              imageObserver.unobserve(img);
+            }
+          });
+        });
+        
+        document.querySelectorAll('img.lazy').forEach(img => imageObserver.observe(img));
+      }
+      
+      // Animate on scroll
+      const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+            scrollObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+      
+      // Observe elements with scroll-animate class
+      document.querySelectorAll('.scroll-animate').forEach(el => {
+        scrollObserver.observe(el);
+      });
+      
+      // Mobile menu handling
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+          document.body.style.overflow = mobileMenu.classList.contains('hidden') ? '' : 'hidden';
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = '';
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

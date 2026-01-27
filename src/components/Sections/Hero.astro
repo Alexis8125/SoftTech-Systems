@@ -1,0 +1,70 @@
+---
+import Button from '../UI/Button.astro';
+---
+
+<section class="relative overflow-hidden section-padding bg-gradient-to-br from-white via-primary-50/30 to-white">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+  
+  <!-- Animated Orbs -->
+  <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+  <div class="absolute top-40 -left-40 w-80 h-80 bg-accent-teal rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+  <div class="absolute -bottom-40 left-40 w-80 h-80 bg-accent-purple rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+
+  <div class="container-lg relative z-10">
+    <div class="max-w-4xl mx-auto text-center">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 border border-primary-100 mb-8 animate-fade-in">
+        <span class="w-2 h-2 bg-primary-500 rounded-full animate-pulse"></span>
+        <span class="text-sm font-medium text-primary-700">Transformación Digital Confiable</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="heading-1 mb-6 animate-slide-up">
+        <span class="block">Soluciones Tecnológicas</span>
+        <span class="gradient-text">que Simplifican y Escalan</span>
+        <span class="block">tu Negocio</span>
+      </h1>
+
+      <!-- Description -->
+      <p class="text-lead mb-10 max-w-3xl mx-auto animate-slide-up animate-delay-200">
+        En SoftTech Systems desarrollamos software empresarial que combina innovación tecnológica 
+        con funcionalidad práctica. Transformamos procesos complejos en soluciones intuitivas 
+        que impulsan la productividad y el crecimiento sostenible.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up animate-delay-400">
+        <Button size="lg" href="#contacto">
+          Comenzar Proyecto
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </Button>
+        <Button variant="outline" size="lg" href="#productos">
+          Ver Productos
+        </Button>
+      </div>
+
+      <!-- Stats -->
+      <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-secondary-100 pt-12">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-primary-600 mb-2">+50</div>
+          <div class="text-sm text-secondary-600 font-medium">Proyectos Exitosos</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-accent-teal mb-2">100%</div>
+          <div class="text-sm text-secondary-600 font-medium">Satisfacción Cliente</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-accent-purple mb-2">24/7</div>
+          <div class="text-sm text-secondary-600 font-medium">Soporte Técnico</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-accent-amber mb-2">5+</div>
+          <div class="text-sm text-secondary-600 font-medium">Años de Experiencia</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

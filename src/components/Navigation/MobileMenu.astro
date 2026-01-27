@@ -1,0 +1,42 @@
+---
+import Button from '../UI/Button.astro';
+---
+
+<button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-secondary-50 transition-colors">
+  <svg class="w-6 h-6 text-secondary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+</button>
+
+<div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-white border-t border-secondary-100 shadow-xl z-50">
+  <div class="container-lg py-6 space-y-4">
+    <a href="#soluciones" class="block py-3 text-secondary-700 hover:text-primary-600 font-medium border-b border-secondary-100">Soluciones</a>
+    <a href="#servicios" class="block py-3 text-secondary-700 hover:text-primary-600 font-medium border-b border-secondary-100">Servicios</a>
+    <a href="#productos" class="block py-3 text-secondary-700 hover:text-primary-600 font-medium border-b border-secondary-100">Productos</a>
+    <a href="#nosotros" class="block py-3 text-secondary-700 hover:text-primary-600 font-medium border-b border-secondary-100">Nosotros</a>
+    <a href="#proceso" class="block py-3 text-secondary-700 hover:text-primary-600 font-medium border-b border-secondary-100">Proceso</a>
+    
+    <div class="pt-4 space-y-3">
+      <Button variant="outline" href="#contacto" className="w-full justify-center">Contacto</Button>
+      <Button href="#contacto" className="w-full justify-center">Iniciar Proyecto</Button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    menuButton.classList.toggle('bg-secondary-50');
+  });
+
+  // Cerrar menú al hacer clic en un enlace
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuButton.classList.remove('bg-secondary-50');
+    });
+  });
+</script>
