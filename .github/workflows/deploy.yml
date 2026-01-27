@@ -1,19 +1,15 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Activa el workflow en cada push a la rama main
   push:
     branches: [ main ]
-  # Permite ejecutar el workflow manualmente desde la pestaña Actions
   workflow_dispatch:
 
-# Configura permisos para GITHUB_TOKEN
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Permite un despliegue concurrente
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -21,8 +17,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout repositorio
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -31,14 +28,14 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
-
-      - name: Instalar dependencias
-        run: npm ci
-
-      - name: Construir con Astro
-        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
